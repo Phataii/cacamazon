@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Confluence Amazons Charity Foundation</title>
+    <title>Gallery - Confluence Amazons Charity Foundation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -29,14 +29,14 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 80px; /* Account for fixed navbar */
+            padding-top: 80px;
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
 
         /* Navigation Styles */
@@ -200,48 +200,50 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/women.jpeg');
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.9)), 
+                        url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            color: var(--white);
-            padding: 120px 0;
+            height: 60vh;
+            display: flex;
+            align-items: center;
             text-align: center;
-            position: relative;
+            color: var(--white);
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: var(--primary-green);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 30px;
+            background-color: var(--white);
+            color: var(--primary-green);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
             font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid var(--primary-green);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
         }
 
         .btn:hover {
-            background-color: transparent;
-            color: var(--primary-green);
+            background-color: var(--light-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         /* Section Title */
@@ -276,139 +278,54 @@
             font-size: 1.1rem;
         }
 
-        /* About Section */
-        .about-section {
-            padding: 80px 0;
-            background-color: var(--light-gray);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.2rem;
-            color: var(--dark-green);
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .about-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .about-image:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Founder Section */
-        .founder-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--light-green) 0%, var(--dark-green) 100%);
-            color: var(--white);
-        }
-
-        .founder-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .founder-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 5px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .founder-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .founder-info h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        .founder-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .founder-info p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .founder-quote {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
-            position: relative;
-        }
-
-        .founder-quote::before {
-            content: """;
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.2);
-            position: absolute;
-            left: 15px;
-            top: -10px;
-            font-family: Georgia, serif;
-        }
-
-        .founder-quote p {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 0;
-        }
-
         /* Gallery Section */
         .gallery-section {
             padding: 80px 0;
             background-color: var(--light-gray);
         }
 
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
         .gallery-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .gallery-item {
+            position: relative;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            position: relative;
-            height: 250px;
+            height: 280px;
             cursor: pointer;
             transition: var(--transition);
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
@@ -425,114 +342,56 @@
 
         .gallery-overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.9));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             color: var(--white);
             padding: 20px;
-            transform: translateY(100%);
+            text-align: center;
+            opacity: 0;
             transition: var(--transition);
         }
 
         .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-overlay h3 {
             transform: translateY(0);
         }
 
-        /* Team Section */
-        .team-section {
-            padding: 80px 0;
-        }
-
-        .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            text-align: center;
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .team-member-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            border: 3px solid var(--primary-green);
-        }
-
-        .team-member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .team-member h3 {
-            font-size: 1.3rem;
-            color: var(--dark-green);
-            margin-bottom: 5px;
-        }
-
-        .team-member p {
-            color: var(--primary-green);
+        .gallery-overlay p {
+            font-size: 0.9rem;
             margin-bottom: 15px;
-            font-style: italic;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.2s;
         }
 
-        .team-member-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        .gallery-item:hover .gallery-overlay p {
+            transform: translateY(0);
         }
 
-        .team-member-social a {
-            color: var(--text-dark);
-            font-size: 1.2rem;
-            transition: var(--transition);
+        .gallery-icon {
+            font-size: 1.5rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.3s;
         }
 
-        .team-member-social a:hover {
-            color: var(--primary-green);
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--light-green) 0%, var(--dark-green) 100%);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .stat-item {
-            padding: 20px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .stat-text {
-            font-size: 1.2rem;
+        .gallery-item:hover .gallery-icon {
+            transform: translateY(0);
         }
 
         /* Modal for gallery */
@@ -544,7 +403,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
+            z-index: 1100;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -561,30 +420,91 @@
             max-width: 90%;
             max-height: 90%;
             position: relative;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .modal-content img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            display: block;
         }
 
         .modal-close {
             position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
             border: none;
             color: var(--white);
-            font-size: 2rem;
+            font-size: 1.5rem;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
         }
 
         .modal-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             color: var(--white);
+            padding: 20px;
             text-align: center;
-            margin-top: 15px;
-            font-size: 1.1rem;
+        }
+
+        .modal-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+
+        .modal-nav button {
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .modal-nav button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
         }
 
         /* Responsive Design */
@@ -641,12 +561,12 @@
                 padding-left: 20px;
             }
             
-            .about-content, .founder-content {
-                grid-template-columns: 1fr;
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
         }
 
@@ -659,16 +579,12 @@
                 font-size: 2.2rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .hero {
+                height: 50vh;
             }
             
             .gallery-container {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -682,13 +598,18 @@
                 padding: 8px 16px;
                 font-size: 0.9rem;
             }
-
-            .stats-container {
+            
+            .gallery-container {
                 grid-template-columns: 1fr;
             }
             
-            .hero {
-                padding: 80px 0;
+            .gallery-filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -710,7 +631,7 @@
                     <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link active">About Us</a>
+                    <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
@@ -719,14 +640,13 @@
                         <a href="#" class="dropdown-link">Entrepreneurship</a>
                         <a href="#" class="dropdown-link">Mental Health</a>
                         <a href="#" class="dropdown-link">Legal Services</a>
-                        <a href="#" class="dropdown-link">Campaigns Against Drug Abuse</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a href="testimonials.html" class="nav-link">Testimonials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Gallery</a>
+                    <a href="gallery.html" class="nav-link active">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
@@ -742,56 +662,9 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>About Confluence Amazons</h1>
-                <p>Empowering communities, transforming lives, and creating sustainable change through compassion and action.</p>
-                <a href="#gallery" class="btn">View Our Gallery</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Story</h2>
-                <p>Discover the journey of Confluence Amazons Charity Foundation and our commitment to making a difference</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Creating Lasting Impact Since 2010</h2>
-                    <p>Confluence Amazons Charity Foundation (CACF) was established with a vision to create a world where every individual, regardless of their circumstances, has access to opportunities for growth, education, and empowerment.</p>
-                    <p>Our foundation focuses on four key areas: education for persons with disabilities, entrepreneurship support for women, mental health awareness, and legal aid services for the underprivileged.</p>
-                    <p>Through our dedicated programs and initiatives, we have touched thousands of lives across Nigeria, creating ripples of positive change that extend far beyond our immediate beneficiaries.</p>
-                    <a href="#" class="btn">Learn More About Our Work</a>
-                </div>
-                <div class="about-image">
-                    <img src="./images/logo2.jpeg" alt="CACF Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founder Section -->
-    <section class="founder-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Founder</h2>
-                <p>Meet the visionary behind Confluence Amazons Charity Foundation</p>
-            </div>
-            <div class="founder-content">
-                <div class="founder-image">
-                    <img src="./images/founder.jpeg" alt="Hajia Rukayat Jumai Husseini">
-                </div>
-                <div class="founder-info">
-                    <h2>Hajia Rukayat Jumai Husseini, Esq.</h2>
-                    <h3>Visionary Leader & Social Justice Advocate</h3>
-                    <p>Hajia Rukayat Jumai Husseini is a lawyer, philanthropist, and social entrepreneur with over 15 years of experience in advocacy and community development. Her passion for creating equitable opportunities stems from her early experiences witnessing the challenges faced by marginalized communities.</p>
-                    <p>As a legal practitioner, she has championed numerous causes, particularly focusing on the rights of persons with disabilities. Her groundbreaking advocacy led to the waiver of Post-UTME examinations for visually impaired candidates in Nigerian universities, opening doors to higher education for countless individuals.</p>
-                    <p>Under her leadership, CACF has grown from a small community initiative to a nationally recognized foundation with impactful programs in education, entrepreneurship, mental health, and legal aid.</p>
-                    <div class="founder-quote">
-                        <p>"True change happens when we move beyond sympathy to action. Every person we empower creates a ripple effect that transforms families, communities, and ultimately, our society."</p>
-                    </div>
-                </div>
+                <h1>Our Gallery</h1>
+                <p>Capturing moments of impact, empowerment, and transformation through our programs and initiatives</p>
+                <a href="#gallery" class="btn">View Gallery</a>
             </div>
         </div>
     </section>
@@ -800,79 +673,115 @@
     <section class="gallery-section" id="gallery">
         <div class="container">
             <div class="section-title">
-                <h2>Our Gallery</h2>
-                <p>COMING SOON...</p>
+                <h2>Moments That Matter</h2>
+                <p>Explore our visual journey of creating positive change in communities across Nigeria</p>
             </div>
-            <!-- <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80" alt="Education Program">
+
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="education">Education</button>
+                <button class="filter-btn" data-filter="entrepreneurship">Entrepreneurship</button>
+                <button class="filter-btn" data-filter="community">Community Outreach</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-container">
+                <!-- Education Images -->
+                <div class="gallery-item" data-category="education">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Education Program">
                     <div class="gallery-overlay">
-                        <h3>Education Program</h3>
-                        <p>Supporting visually impaired students in their academic journey</p>
+                        <h3>Education Support</h3>
+                        <p>Empowering visually impaired students through educational advocacy</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Entrepreneurship Workshop">
+
+                <div class="gallery-item" data-category="education">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Scholarship Program">
                     <div class="gallery-overlay">
-                        <h3>Entrepreneurship Workshop</h3>
-                        <p>Empowering women with business skills and resources</p>
+                        <h3>Scholarship Awards</h3>
+                        <p>Celebrating academic achievements of deserving students</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Community Outreach">
+
+                <!-- Entrepreneurship Images -->
+                <div class="gallery-item" data-category="entrepreneurship">
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Entrepreneurship Workshop">
+                    <div class="gallery-overlay">
+                        <h3>Business Training</h3>
+                        <p>Empowering women with entrepreneurial skills and resources</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="entrepreneurship">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Small Business Support">
+                    <div class="gallery-overlay">
+                        <h3>Small Business Support</h3>
+                        <p>Providing non-profit loans and business advisory services</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+
+                <!-- Community Outreach Images -->
+                <div class="gallery-item" data-category="community">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Community Outreach">
                     <div class="gallery-overlay">
                         <h3>Community Outreach</h3>
                         <p>Bringing essential services to underserved communities</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Legal Aid Clinic">
+
+                <div class="gallery-item" data-category="community">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rural Development">
                     <div class="gallery-overlay">
-                        <h3>Legal Aid Clinic</h3>
-                        <p>Providing pro bono legal services to those in need</p>
+                        <h3>Rural Development</h3>
+                        <p>Transforming lives in rural communities across Nigeria</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mental Health Awareness">
-                    <div class="gallery-overlay">
-                        <h3>Mental Health Awareness</h3>
-                        <p>Breaking stigma and promoting mental wellbeing</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Success Celebration">
+
+                <!-- Events Images -->
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Success Celebration">
                     <div class="gallery-overlay">
                         <h3>Success Celebration</h3>
                         <p>Celebrating the achievements of our beneficiaries</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
                     </div>
                 </div>
-            </div> -->
-        </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Impact</h2>
-                <p>Numbers that tell the story of our commitment to change</p>
-            </div>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">5,000+</div>
-                    <div class="stat-text">Lives Impacted</div>
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Award Ceremony">
+                    <div class="gallery-overlay">
+                        <h3>Award Ceremony</h3>
+                        <p>Recognizing outstanding contributions to community development</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">12</div>
-                    <div class="stat-text">Years of Service</div>
+
+                <!-- Mental Health Images -->
+                <div class="gallery-item" data-category="community">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mental Health Awareness">
+                    <div class="gallery-overlay">
+                        <h3>Mental Health Awareness</h3>
+                        <p>Breaking stigma and promoting mental wellbeing</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-text">Education Scholarships</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">300+</div>
-                    <div class="stat-text">Entrepreneurs Supported</div>
+
+                <!-- Legal Services Images -->
+                <div class="gallery-item" data-category="community">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Legal Aid Clinic">
+                    <div class="gallery-overlay">
+                        <h3>Legal Aid Clinic</h3>
+                        <p>Providing pro bono legal services to those in need</p>
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -881,14 +790,21 @@
     <!-- Modal for gallery -->
     <div class="modal" id="galleryModal">
         <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-nav">
+            <button id="modalPrev"><i class="fas fa-chevron-left"></i></button>
+            <button id="modalNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
         <div class="modal-content">
             <img id="modalImage" src="" alt="">
-            <div class="modal-caption" id="modalCaption"></div>
+            <div class="modal-caption">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Mobile Menu Toggle - FIXED
+        // Mobile Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
 
@@ -928,30 +844,97 @@
             }
         });
 
-        // Gallery modal functionality
-        const modal = document.getElementById('galleryModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalCaption = document.getElementById('modalCaption');
-        const modalClose = document.getElementById('modalClose');
-        
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const imgSrc = item.querySelector('img').src;
-                const caption = item.querySelector('h3').textContent;
-                const description = item.querySelector('p').textContent;
+        // Gallery Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
                 
-                modalImage.src = imgSrc;
-                modalCaption.textContent = `${caption} - ${description}`;
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
+                // Filter gallery items
+                const filter = button.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
-        
+
+        // Gallery Modal Functionality
+        const modal = document.getElementById('galleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+
+        let currentImageIndex = 0;
+        const galleryImages = Array.from(galleryItems);
+
+        function openModal(index) {
+            const item = galleryImages[index];
+            const imgSrc = item.querySelector('img').src;
+            const title = item.querySelector('h3').textContent;
+            const description = item.querySelector('p').textContent;
+            
+            modalImage.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            currentImageIndex = index;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            openModal(currentImageIndex);
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            openModal(currentImageIndex);
+        }
+
+        // Open modal when clicking on gallery items
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                openModal(index);
+            });
+        });
+
+        // Modal controls
         modalClose.addEventListener('click', () => {
             modal.classList.remove('show');
             document.body.style.overflow = 'auto';
         });
-        
+
+        modalNext.addEventListener('click', showNextImage);
+        modalPrev.addEventListener('click', showPrevImage);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('show')) {
+                if (e.key === 'Escape') {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                } else if (e.key === 'ArrowRight') {
+                    showNextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrevImage();
+                }
+            }
+        });
+
+        // Close modal when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('show');
