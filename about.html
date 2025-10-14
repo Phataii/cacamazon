@@ -29,9 +29,17 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 80px; /* Account for fixed navbar */
         }
-        
-       /* Navigation Styles */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Styles */
         .navbar {
             background-color: var(--white);
             box-shadow: var(--shadow);
@@ -64,20 +72,10 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-            color: var(--primary-green);
-            margin-right: 10px;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-green);
-        }
-
-        .logo-text span {
-            color: var(--primary-green);
+        .logo img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -98,6 +96,9 @@
             padding: 10px 0;
             position: relative;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .nav-link:hover {
@@ -194,158 +195,7 @@
             border: none;
             font-size: 1.5rem;
             color: var(--dark-green);
-        }
-
-        /* Hero Section for Demo */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 180px 0 100px;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Content Sections for Demo */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section:nth-child(even) {
-            background-color: var(--light-gray);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                background-color: var(--white);
-                width: 100%;
-                height: calc(100vh - 80px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: var(--transition);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-item {
-                margin: 15px 0;
-            }
-
-            .dropdown-content {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background-color: transparent;
-                display: none;
-            }
-
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-
-            .dropdown-link {
-                padding: 10px 0;
-                border-bottom: none;
-            }
-
-            .dropdown-link:hover {
-                padding-left: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .logo-text {
-                font-size: 1.2rem;
-            }
-
-            .nav-cta {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 150px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark-green);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 3px;
-            background-color: var(--primary-green);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--text-dark);
-            font-size: 1.1rem;
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -392,6 +242,38 @@
         .btn:hover {
             background-color: transparent;
             color: var(--primary-green);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary-green);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-dark);
+            font-size: 1.1rem;
         }
 
         /* About Section */
@@ -707,6 +589,58 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background-color: var(--white);
+                width: 100%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
+                display: none;
+                text-align: center;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-link {
+                padding: 10px 0;
+                border-bottom: none;
+            }
+
+            .dropdown-link:hover {
+                padding-left: 20px;
+            }
+            
             .about-content, .founder-content {
                 grid-template-columns: 1fr;
             }
@@ -739,6 +673,16 @@
         }
 
         @media (max-width: 576px) {
+            .logo img {
+                width: 80px;
+                height: 60px;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
             .stats-container {
                 grid-template-columns: 1fr;
             }
@@ -747,15 +691,14 @@
                 padding: 80px 0;
             }
         }
-
-  
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="images/logo.jpeg" alt="logo" style="width: 100px; height: 80px;"/>
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpeg" alt="Confluence Amazons Logo">
             </a>
 
             <button class="hamburger" id="hamburger">
@@ -767,7 +710,7 @@
                     <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="about.html" class="nav-link active">About Us</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
@@ -793,6 +736,7 @@
             </ul>
         </div>
     </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -905,62 +849,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Team</h2>
-                <p>Meet the dedicated individuals driving our mission forward</p>
-            </div>
-            <div class="team-container">
-                <div class="team-member">
-                    <div class="team-member-image">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Team Member">
-                    </div>
-                    <h3>Amina Yusuf</h3>
-                    <p>Program Director</p>
-                    <div class="team-member-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-image">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Team Member">
-                    </div>
-                    <h3>Chinedu Okoro</h3>
-                    <p>Education Coordinator</p>
-                    <div class="team-member-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-image">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member">
-                    </div>
-                    <h3>Fatima Bello</h3>
-                    <p>Legal Aid Director</p>
-                    <div class="team-member-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-image">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Team Member">
-                    </div>
-                    <h3>Emeka Nwankwo</h3>
-                    <p>Finance Manager</p>
-                    <div class="team-member-social">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
@@ -999,6 +887,46 @@
     </div>
 
     <script>
+        // Mobile Menu Toggle - FIXED
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Dropdown functionality for mobile
+        document.querySelectorAll('.dropdown > .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const dropdown = link.parentElement;
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         // Gallery modal functionality
         const modal = document.getElementById('galleryModal');
         const modalImage = document.getElementById('modalImage');
@@ -1030,26 +958,12 @@
             }
         });
 
-        // Scroll animation for team members
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.team-member').forEach(member => {
-            member.style.opacity = '0';
-            member.style.transform = 'translateY(30px)';
-            member.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(member);
+        // Active link highlighting
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
         });
     </script>
 </body>

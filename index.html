@@ -14,6 +14,7 @@
             --light-gray: #f5f5f5;
             --text-dark: #333333;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -31,16 +32,7 @@
             background-color: var(--white);
             color: var(--text-dark);
             line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            padding-top: 80px; /* Account for fixed navbar */
         }
 
         .container {
@@ -50,7 +42,7 @@
             padding: 0 20px;
         }
 
-     /* Navigation Styles */
+        /* Navigation Styles */
         .navbar {
             background-color: var(--white);
             box-shadow: var(--shadow);
@@ -77,27 +69,17 @@
             height: 80px;
         }
 
-        /* .logo {
+        .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-            color: var(--primary-green);
-            margin-right: 10px;
+        .logo img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
         }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-green);
-        }
-
-        .logo-text span {
-            color: var(--primary-green); */
-        /* } */
 
         .nav-menu {
             display: flex;
@@ -117,6 +99,9 @@
             padding: 10px 0;
             position: relative;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .nav-link:hover {
@@ -213,133 +198,17 @@
             border: none;
             font-size: 1.5rem;
             color: var(--dark-green);
-        }
-
-        /* Hero Section for Demo */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 180px 0 100px;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Content Sections for Demo */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section:nth-child(even) {
-            background-color: var(--light-gray);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                background-color: var(--white);
-                width: 100%;
-                height: calc(100vh - 80px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: var(--transition);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-item {
-                margin: 15px 0;
-            }
-
-            .dropdown-content {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background-color: transparent;
-                display: none;
-            }
-
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-
-            .dropdown-link {
-                padding: 10px 0;
-                border-bottom: none;
-            }
-
-            .dropdown-link:hover {
-                padding-left: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .logo-text {
-                font-size: 1.2rem;
-            }
-
-            .nav-cta {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 150px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            z-index: 1001;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), 
-                        url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
-            padding-top: 80px;
         }
 
         .hero-content {
@@ -551,54 +420,6 @@
             background-color: var(--light-gray);
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 250px;
-            box-shadow: var(--shadow);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(46, 125, 50, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay i {
-            color: var(--white);
-            font-size: 2rem;
-        }
-
         /* Testimonials */
         .testimonials-container {
             max-width: 800px;
@@ -742,8 +563,60 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 992px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background-color: var(--white);
+                width: 100%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
+                display: none;
+                text-align: center;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-link {
+                padding: 10px 0;
+                border-bottom: none;
+            }
+
+            .dropdown-link:hover {
+                padding-left: 20px;
+            }
+            
             .intro-content, .mv-container {
                 flex-direction: column;
             }
@@ -753,57 +626,76 @@
             }
         }
 
-    
+        @media (max-width: 576px) {
+            .logo img {
+                width: 80px;
+                height: 60px;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
     <header>
-        <div class="container">
-             <nav class="navbar">
-                <div class="nav-container">
-                    <a href="#" class="logo">
-                        <img src="images/logo.jpeg" alt="logo" style="width: 100px; height: 80px;"/>
-                        <!-- <i class="fas fa-hands-helping logo-icon"></i>
-                        <div class="logo-text">Confluence <span>Amazons</span></div> -->
-                    </a>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="images/logo.jpeg" alt="Confluence Amazons Logo">
+                </a>
 
-                    <button class="hamburger" id="hamburger">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-                    <ul class="nav-menu" id="nav-menu">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link active">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.html" class="nav-link">About Us</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
-                            <div class="dropdown-content">
-                                <a href="#" class="dropdown-link">Education Support</a>
-                                <a href="#" class="dropdown-link">Entrepreneurship</a>
-                                <a href="#" class="dropdown-link">Mental Health</a>
-                                <a href="#" class="dropdown-link">Legal Services</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="testimonials.html" class="nav-link">Testimonials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-cta">Donate Now</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-link">Education Support</a>
+                            <a href="#" class="dropdown-link">Entrepreneurship</a>
+                            <a href="#" class="dropdown-link">Mental Health</a>
+                            <a href="#" class="dropdown-link">Legal Services</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-cta">Donate Now</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -831,7 +723,7 @@
                     <p>Since 2008, our advocacy has helped over 1,200 physically challenged and non-challenged individuals gain university admission — many of whom are now thriving professionals.</p>
                 </div>
                 <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="CACF Empowerment">
+                    <img src="images/logo.jpeg" alt="CACF Empowerment">
                 </div>
             </div>
         </div>
@@ -895,11 +787,6 @@
                     <i class="fas fa-handshake value-icon"></i>
                     <h3>Collaboration</h3>
                     <p>Working hand in hand with key stakeholders.</p>
-                </div>
-                <div class="value-card">
-                    <i class="fas fa-tree value-icon"></i>
-                    <h3>Resilience</h3>
-                    <p>Cultivating strength and perseverance in individuals and communities.</p>
                 </div>
                 <div class="value-card">
                     <i class="fas fa-tree value-icon"></i>
@@ -972,45 +859,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Gallery</h2>
-                <p>Moments that capture our journey of empowerment</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Education Program">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Women Empowerment">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Community Outreach">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Skills Training">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Mentorship Program">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Success Stories">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
+                <p>COMING SOON...</p>
             </div>
         </div>
     </section>
@@ -1024,16 +873,16 @@
             </div>
             <div class="testimonials-container">
                 <div class="testimonial-slide active">
-                    <p class="testimonial-text">"Thanks to CACF's advocacy, I was able to gain admission to study law despite my visual impairment. Today, I'm a practicing lawyer at the Abia State Ministry of Justice. This foundation changed my life."</p>
-                    <p class="testimonial-author">- John Ifere Obasi</p>
+                    <p class="testimonial-text">"My name is Muhammad Saba Kolo, a visually impaired person in Nigeria who gained admission into the university in 2014, I hold a Bachelor Degree in Political science. After successfully passing the IJMB examination, I faced the barrier of the Post-UTME, which at the time posed a major challenge to persons with disabilities. Through the tireless advocacy and intervention of Hajia Jumai, the policy was waived for visually impaired candidates like me. Her voice, dedication and courage opened the door to my academic journey. Today, I also hold a Master's degree in Public Policy and Administration From Ibrahim Badamasi Babangida University Lapai and I am proudly a teacher in FCT School for The Blind children Jabi Abuja. Her impact transformed my life and the lives of many other Visually impaired person."</p>
+                    <p class="testimonial-author">- Muhammad Saba Kolo</p>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-text">"The entrepreneurship training I received through CACF gave me the skills and confidence to start my own small business. I'm now financially independent and able to support my family."</p>
-                    <p class="testimonial-author">- Amina Yusuf</p>
+                    <p class="testimonial-text">"My name is Barrister John Ifere Obasi, a visually impaired lawyer and LLB holder currently serving with the Abia State Ministry of Justice. In 2009, after successfully passing the JAMB examination, I faced the obstacle of the Post-UTME, which posed a serious challenge for persons with visual impairment. Through the relentless advocacy of Hajia Rukayat Jumai Husseini Esq, the policy was waived for candidates like me. Her efforts led to the removal of a barrier that would have denied me access to higher education. Her intervention changed the course of my life. Today, I stand as a lawyer because she fought for inclusion and equal opportunity."</p>
+                    <p class="testimonial-author">- Barr. John Ifere Obasi</p>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-text">"As a volunteer with CACF, I've witnessed firsthand the transformative power of education and mental health support in underserved communities. It's inspiring to be part of this mission."</p>
-                    <p class="testimonial-author">- Dr. Chika Nwosu, Volunteer</p>
+                    <p class="testimonial-text">"My name is Mrs Oparinde Ronke, founder of Oparinde's Farm Enterprises, a growing financial services and poultry business. For the past ten years, I have been a proud beneficiary of the unwavering support of Hajia Rukayat Jumai Husseini and the Confluence Amazons Charity Foundation. Their mentorship, voluntary financing, and business advisory services have transformed my business journey and empowered me to grow from modest beginnings into a more structured and impactful enterprise. Through their innovative programmes, I have improved operations, created job opportunities, and increased customer satisfaction. Hajia Rukayat's visionary leadership and compassionate guidance have not only strengthened my business but also renewed my confidence as a woman entrepreneur. I remain profoundly grateful to the Confluence Amazons Charity Foundation for believing in small businesses and nurturing sustainable growth. Their dedication truly changed our lives and business."</p>
+                    <p class="testimonial-author">- Mrs Oparinde Ronke</p>
                 </div>
                 <div class="testimonial-nav">
                     <span class="testimonial-dot active" data-slide="0"></span>
@@ -1101,9 +950,44 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        // Mobile Menu Toggle - FIXED
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Dropdown functionality for mobile
+        document.querySelectorAll('.dropdown > .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    const dropdown = link.parentElement;
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
         // Testimonial Slider
@@ -1146,9 +1030,6 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
