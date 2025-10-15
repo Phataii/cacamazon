@@ -420,6 +420,43 @@
             background-color: var(--light-gray);
         }
 
+         /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 300px;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
         /* Testimonials */
         .testimonials-container {
             max-width: 800px;
@@ -685,9 +722,9 @@
                     <li class="nav-item">
                         <a href="testimonials.html" class="nav-link">Testimonials</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#" class="nav-link">Gallery</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="contact.html" class="nav-link">Contact</a>
                     </li>
@@ -833,7 +870,7 @@
                     <p>We now have seven trustees and a network of global volunteers, all professionals dedicated to advancing our mission of empowering lives through opportunity, dignity, and compassion.</p>
                 </div>
                 
-                <div class="stats">
+                <!-- <div class="stats">
                     <div class="stat-item">
                         <h3>1,200+</h3>
                         <p>Individuals Helped</p>
@@ -850,20 +887,50 @@
                         <h3>6</h3>
                         <p>Program Areas</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
+    <section class="gallery-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Gallery</h2>
-                <p>COMING SOON...</p>
+                <h2>Moments That Matter</h2>
+                <p>Visual stories of our journey creating positive change</p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-container">
+                <!-- Replace these with your actual images -->
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery1.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery2.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery3.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery4.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery5.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery6.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery7.jpeg" alt="img">
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery/gallery8.jpeg" alt="img">
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
