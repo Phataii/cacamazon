@@ -385,6 +385,84 @@
             margin-bottom: 0;
         }
 
+        /* Board Members Section */
+        .board-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .board-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .board-member {
+            text-align: center;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .board-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .board-member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-green);
+        }
+
+        .board-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .board-member h3 {
+            font-size: 1.3rem;
+            color: var(--dark-green);
+            margin-bottom: 5px;
+        }
+
+        .board-member .position {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .board-member .description {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .board-member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .board-member-social a {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .board-member-social a:hover {
+            color: var(--primary-green);
+        }
+
         /* Gallery Section */
         .gallery-section {
             padding: 80px 0;
@@ -437,74 +515,6 @@
 
         .gallery-item:hover .gallery-overlay {
             transform: translateY(0);
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 80px 0;
-        }
-
-        .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            text-align: center;
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .team-member-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            border: 3px solid var(--primary-green);
-        }
-
-        .team-member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .team-member h3 {
-            font-size: 1.3rem;
-            color: var(--dark-green);
-            margin-bottom: 5px;
-        }
-
-        .team-member p {
-            color: var(--primary-green);
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .team-member-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .team-member-social a {
-            color: var(--text-dark);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .team-member-social a:hover {
-            color: var(--primary-green);
         }
 
         /* Stats Section */
@@ -648,6 +658,10 @@
             .hero h1 {
                 font-size: 2.8rem;
             }
+            
+            .board-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
@@ -669,6 +683,10 @@
             
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .board-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -796,8 +814,117 @@
         </div>
     </section>
 
+    <!-- Board Members Section -->
+    <section class="board-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Board of Trustees</h2>
+                <p>Meet the dedicated individuals who guide our mission and vision</p>
+            </div>
+            <div class="board-container">
+                <!-- Board Member 1 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="./images/founder.jpeg" alt="Board Member">
+                    </div>
+                    <h3>Hajia Rukayat Jumai Husseini, Esq.</h3>
+                    <div class="position">Founder/President</div>
+                    <!-- <div class="description">Visionary leader with over 15 years of experience in advocacy and community development, driving the foundation's strategic direction.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+
+                <!-- Board Member 2 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="./images/board/aminu.jpeg" alt="Board Member">
+                    </div>
+                    <h3>Alh. Abubakar Aminu Suleiman</h3>
+                    <div class="position">Board Chairman</div>
+                    <!-- <div class="description">Education specialist with expertise in program development and implementation for underserved communities.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+
+                <!-- Board Member 3 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg?semt=ais_hybrid&w=740&q=80" alt="Board Member">
+                    </div>
+                    <h3>Hajia Ajeletu Udale Shehu</h3>
+                    <div class="position">Board Member</div>
+                    <!-- <div class="description">Financial management expert ensuring transparency and accountability in all foundation operations and resource allocation.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+
+                <!-- Board Member 4 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg?semt=ais_hybrid&w=740&q=80" alt="Board Member">
+                    </div>
+                    <h3>Hajia Mariam Ojochide Ali</h3>
+                    <div class="position">Board Member</div>
+                    <!-- <div class="description">Clinical psychologist providing expertise in mental health programs and community wellness initiatives.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+
+                <!-- Board Member 5 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="./images/board/jatto.jpeg" alt="Board Member">
+                    </div>
+                    <h3>Mrs Jatto Jummai</h3>
+                    <div class="position">Board Member</div>
+                    <!-- <div class="description">Legal expert overseeing the foundation's pro bono legal services and advocacy for persons with disabilities.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+
+                <!-- Board Member 6 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="./images/board/rasheedat.jpeg" alt="Board Member">
+                    </div>
+                    <h3>Barr. Salaudeen-Ajide Rasheedat Oyeronke</h3>
+                    <div class="position">Board Member</div>
+                    <!-- <div class="description">Business development specialist guiding the foundation's entrepreneurship and small business support programs.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+
+                <!-- Board Member 7 -->
+                <div class="board-member">
+                    <div class="board-member-image">
+                        <img src="./images/board/mark.jpeg" alt="Board Member">
+                    </div>
+                    <h3>Chief Ogah Mark Okpanachi</h3>
+                    <div class="position">Board Member</div>
+                    <!-- <div class="description">Business development specialist guiding the foundation's entrepreneurship and small business support programs.</div>
+                    <div class="board-member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
-    <section class="gallery-section">
+    <section class="gallery-section" id="gallery">
         <div class="container">
             <div class="section-title">
                 <h2>Moments That Matter</h2>
@@ -834,6 +961,7 @@
             </div>
         </div>
     </section>
+
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
@@ -843,19 +971,19 @@
             </div>
             <div class="stats-container">
                 <div class="stat-item">
-                    <div class="stat-number">5,000+</div>
+                    <div class="stat-number">10,000+</div>
                     <div class="stat-text">Lives Impacted</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">12</div>
+                    <div class="stat-number">18</div>
                     <div class="stat-text">Years of Service</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">150+</div>
+                    <div class="stat-number">223+</div>
                     <div class="stat-text">Education Scholarships</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">300+</div>
+                    <div class="stat-number">732+</div>
                     <div class="stat-text">Entrepreneurs Supported</div>
                 </div>
             </div>
@@ -921,11 +1049,8 @@
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
                 const imgSrc = item.querySelector('img').src;
-                const caption = item.querySelector('h3').textContent;
-                const description = item.querySelector('p').textContent;
-                
                 modalImage.src = imgSrc;
-                modalCaption.textContent = `${caption} - ${description}`;
+                modalCaption.textContent = "Confluence Amazons Charity Foundation - Making a Difference";
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
             });
