@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programmes - Confluence Amazons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2e7d32;
+            --light-green: #4caf50;
+            --dark-green: #1b5e20;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-dark: #333333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .org-name {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-small {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 1rem 1.2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(43, 94, 47, 0.8), rgba(27, 94, 32, 0.9)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-green);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--light-green);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .program-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+            position: relative;
+            scroll-margin-top: 80px;
+        }
+
+        .program-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-icon {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-right: 15px;
+        }
+
+        .program-title {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+        }
+
+        .program-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .criteria-list, .objectives-list {
+            list-style-type: none;
+            margin: 1.5rem 0;
+        }
+
+        .criteria-list li, .objectives-list li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .criteria-list li::before, .objectives-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--light-green);
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--primary-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--light-green);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .program-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .program-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .program-section {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .org-name {
+                font-size: 1.7rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <!-- <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo"><i class="fas fa-hands-helping"></i></div>
+                <h1 class="org-name">Confluence Amazons</h1>
+            </div>
+            <p class="tagline">Empowering communities through education, mental health support, and entrepreneurship</p>
+        </div>
+    </header> -->
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-small">Confluence Amazons</div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#mental-health"><i class="fas fa-brain"></i> Mental Health</a></li>
+                <li><a href="#mentorship"><i class="fas fa-hands-helping"></i> Mentorship</a></li>
+                <li><a href="#entrepreneurship"><i class="fas fa-briefcase"></i> Entrepreneurship</a></li>
+                <li><a href="#legal"><i class="fas fa-balance-scale"></i> Legal Services</a></li>
+                <li><a href="#drug-abuse"><i class="fas fa-ban"></i> Drug Abuse Campaign</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Our Programmes</h1>
+            <p>Discover how Confluence Amazons is making a difference through our comprehensive community initiatives</p>
+            <a href="#education" class="cta-button">Explore Our Programmes</a>
+        </div>
+    </section>
+    
+    <div class="container">
+        <!-- Education & Scholarship Programme -->
+        <section id="education" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h2 class="program-title">EDUCATION & SCHOLARSHIP PROGRAMME</h2>
+            </div>
+            <p class="program-description">The Foundation provides scholarships to indigent pupils in government-owned basic and secondary schools across all zones in Nigeria. Support is strictly for children from low-income families who lack the means to access or continue formal education.</p>
+            
+            <h3>CRITERIA FOR SELECTING BENEFICIARIES</h3>
+            <ul class="criteria-list">
+                <li><strong>Financial Need:</strong> Beneficiaries or their parents/guardians must be poor and unable to fund the child's education.</li>
+                <li><strong>Out-of-School Risk:</strong> The child must either be out of school or at risk of dropping out due to the parents' inability to pay school-related costs.</li>
+                <li><strong>Residency and Nationality:</strong> Beneficiaries must be Nigerian citizens and reside in any part of the country.</li>
+                <li><strong>Parental/Guardian Consent:</strong> The parents or guardians of the beneficiary must give full consent before the scholarship is awarded.</li>
+                <li><strong>Enrollment in Public Schools:</strong> Beneficiaries must be willing to attend the nearest government school within their community.</li>
+            </ul>
+        </section>
+        
+        <!-- Mental Health Support Programme -->
+        <section id="mental-health" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fas fa-brain"></i></div>
+                <h2 class="program-title">MENTAL HEALTH SUPPORT PROGRAMME</h2>
+            </div>
+            <p class="program-description">Our Mental Health Support Programme provides counselling, awareness, and community-based interventions to promote emotional well-being and prevent psychological distress. We create safe spaces for individuals facing mental, social, or trauma-related challenges and connect them to the support they need.</p>
+            <p>The programme targets in-school and out-of-school youths, adolescents, young adults, war victims, and flood victims.</p>
+            
+            <h3>Through this programme, we offer:</h3>
+            <ul class="objectives-list">
+                <li>Professional counselling for individuals, families, and groups</li>
+                <li>Awareness and advocacy on mental health and psychosocial well-being</li>
+                <li>Collaboration with schools, communities, and organisations to promote mental resilience</li>
+                <li>Community outreach to reduce stigma and encourage help-seeking behaviour</li>
+                <li>Support groups for victims of trauma, addiction, abuse, life crises, war, and floods</li>
+            </ul>
+        </section>
+        
+        <!-- Mentorship & Counselling Programme -->
+        <section id="mentorship" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fas fa-hands-helping"></i></div>
+                <h2 class="program-title">MENTORSHIP & COUNSELLING PROGRAMME</h2>
+            </div>
+            <p class="program-description">Our Mentorship and Counselling Programme is designed to guide, support, and empower young people through structured mentorship, emotional support, and professional counselling services. We focus on helping youths build confidence, make informed decisions, and overcome personal, social, academic, or emotional challenges.</p>
+            <p>The programme targets in-school and out-of-school youths, adolescents, young adults, and war victims who need direction, encouragement, and healthy guidance to thrive in life.</p>
+            
+            <h3>Through our programme, beneficiaries receive:</h3>
+            <ul class="objectives-list">
+                <li>Professional mentorship from experienced individuals in various fields</li>
+                <li>Personal counselling to address mental, emotional, and social needs</li>
+                <li>Guidance and motivation for career, character, and life development</li>
+                <li>Support systems that strengthen self-esteem, resilience, and purpose</li>
+                <li>Empowerment activities that promote leadership and positive behaviour</li>
+            </ul>
+        </section>
+        
+        <!-- Entrepreneurship Training Programme -->
+        <section id="entrepreneurship" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fas fa-briefcase"></i></div>
+                <h2 class="program-title">ENTREPRENEURSHIP TRAINING PROGRAMME</h2>
+            </div>
+            <p class="program-description">Our Entrepreneurship Training Programme equips children, youths, and aspiring young leaders with practical skills to become self-reliant and innovative. The programme focuses on early skill development, creativity, and financial independence through hands-on training and mentorship.</p>
+            <p>This is achieved through the Amazons Schools Entrepreneurship Clubs, which enable us to "catch them young" from the basic level through secondary school.</p>
+            
+            <h3>OUR PROGRAMME TARGETS:</h3>
+            <ul class="objectives-list">
+                <li><strong>Skill Acquisition:</strong> Training in vocational, digital, and small-scale business skills.</li>
+                <li><strong>Early Entrepreneurship Education:</strong> Introducing children and teenagers to creative thinking and innovation.</li>
+                <li><strong>Youth Empowerment:</strong> Preparing young people to become self-employed and job creators.</li>
+                <li><strong>Leadership Development:</strong> Building confidence, problem-solving abilities, and initiative.</li>
+                <li><strong>Mentorship Support:</strong> Connecting participants with experienced entrepreneurs for guidance.</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h3>CONFLUENCE AMAZONS NON-PROFIT</h3>
+                <p>The Confluence Amazons Non-Profit Initiative began over a decade ago as an informal effort to support family members and friends in growing their small businesses through financial and moral assistance.</p>
+                <p>Following the COVID-19 pandemic, the initiative evolved into a formal and structured programme designed to empower trained individuals who had acquired vocational or business skills but required financial support to start or expand their enterprises.</p>
+                <p>One of the early beneficiaries of this initiative even before its official launch was Mrs. Ronke Oparinde, who operates at Bwari Law School Road.</p>
+                <p>The core objective of the programme is to ensure that trained individuals utilize their funds wisely, grow sustainable businesses, and repay the non-profit loan within six months. Beyond financial support, the organization also provides mentorship and close monitoring to ensure lasting success.</p>
+            </div>
+        </section>
+        
+        <!-- Pro Bono Legal Services -->
+        <section id="legal" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fas fa-balance-scale"></i></div>
+                <h2 class="program-title">PRO BONO LEGAL SERVICES</h2>
+            </div>
+            <p class="program-description">Our Pro Bono Legal Services are dedicated to supporting indigent women and children, particularly in cases involving educational rights and domestic violence. This programme ensures access to justice, legal protection, and guidance for vulnerable individuals who cannot afford legal representation.</p>
+        </section>
+        
+        <!-- Campaigns Against Drug Abuse -->
+        <section id="drug-abuse" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fas fa-ban"></i></div>
+                <h2 class="program-title">CAMPAIGNS AGAINST DRUG ABUSE</h2>
+            </div>
+            <p class="program-description">Our Campaigns Against Drug Abuse focus on raising awareness, preventing substance use, and supporting recovery efforts within communities. We engage schools, families, religious groups, and vulnerable populations through advocacy, sensitisation, and intervention programmes.</p>
+            <p>Substance and drug abuse prevention is also an integral part of the Confluence Amazons Schools Mental Health Club curriculum. Our Clubs are projected to be established in basic and secondary schools across various communities around the world.</p>
+            
+            <h3>Objectives of Our Campaigns Against Drug and Substance Abuse</h3>
+            <ul class="objectives-list">
+                <li><strong>Awareness and Sensitisation:</strong> Educating the public on the dangers of drug and substance abuse.</li>
+                <li><strong>Prevention Campaigns:</strong> Promoting healthy lifestyles and discouraging drug experimentation.</li>
+                <li><strong>Community Engagement:</strong> Partnering with stakeholders to reach at-risk groups.</li>
+                <li><strong>Recovery Support:</strong> Guiding individuals towards counselling, rehabilitation, and reintegration.</li>
+                <li><strong>Policy Advocacy:</strong> Supporting national and community efforts to reduce drug abuse.</li>
+            </ul>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Email: info@confluenceamazons.org</p>
+                    <p><i class="fas fa-phone"></i> Phone: +234 XXX XXX XXXX</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Address: Bwari, Abuja, Nigeria</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#education"><i class="fas fa-chevron-right"></i> Education Programme</a></li>
+                        <li><a href="#mental-health"><i class="fas fa-chevron-right"></i> Mental Health</a></li>
+                        <li><a href="#mentorship"><i class="fas fa-chevron-right"></i> Mentorship</a></li>
+                        <li><a href="#entrepreneurship"><i class="fas fa-chevron-right"></i> Entrepreneurship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Donate</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Partnership</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Events</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Confluence Amazons Non-Profit Initiative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.program-section, .hero');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
