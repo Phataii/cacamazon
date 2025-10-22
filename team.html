@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardinal Points Team - Confluence Amazons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --north: #FF6B6B;
+            --east: #4ECDC4;
+            --west: #45B7D1;
+            --south: #96CEB4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+        }
+
+        .home-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .home-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e8f5e9 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--primary);
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Cardinal Points Layout */
+        .cardinal-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        .compass {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            z-index: 10;
+            border: 5px solid var(--primary-light);
+        }
+
+        .compass-inner {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .compass-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .compass-subtitle {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Direction Points */
+        .direction-point {
+            position: absolute;
+            width: 300px;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+        }
+
+        .direction-point:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            z-index: 20;
+        }
+
+        .direction-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            flex-shrink: 0;
+            border: 4px solid;
+            transition: var(--transition);
+        }
+
+        .direction-point:hover .direction-image {
+            transform: scale(1.1);
+        }
+
+        .direction-info {
+            flex: 1;
+        }
+
+        .direction-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .direction-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .coordinator-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .coordinator-role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .direction-social {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.8rem;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Direction-specific styling */
+        .north {
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .north .direction-image { border-color: var(--north); }
+        .north .social-icon:hover { background: var(--north); color: white; }
+
+        .south {
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .south .direction-image { border-color: var(--south); }
+        .south .social-icon:hover { background: var(--south); color: white; }
+
+        .east {
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .east .direction-image { border-color: var(--east); }
+        .east .social-icon:hover { background: var(--east); color: white; }
+
+        .west {
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+        }
+        .west .direction-image { border-color: var(--west); }
+        .west .social-icon:hover { background: var(--west); color: white; }
+
+        .north-east {
+            top: 18%;
+            right: 12%;
+        }
+        .north-east .direction-image { border-color: var(--north); }
+        .north-east .social-icon:hover { background: var(--north); color: white; }
+
+        .north-west {
+            top: 18%;
+            left: 12%;
+        }
+        .north-west .direction-image { border-color: var(--west); }
+        .north-west .social-icon:hover { background: var(--west); color: white; }
+
+        /* Leadership Section */
+        .leadership-section {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .leadership-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .leadership-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .leadership-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .leadership-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .leadership-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--primary-light);
+        }
+
+        .leadership-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .leadership-role {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .leadership-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Compass Lines */
+        .compass-line {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .vertical-line {
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+
+        .horizontal-line {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            transform: translateY(-50%);
+        }
+
+        /* Direction Labels */
+        .direction-label {
+            position: absolute;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            z-index: 2;
+        }
+
+        .label-north { top: 2%; left: 50%; transform: translateX(-50%); }
+        .label-south { bottom: 2%; left: 50%; transform: translateX(-50%); }
+        .label-east { top: 50%; right: 2%; transform: translateY(-50%); }
+        .label-west { top: 50%; left: 2%; transform: translateY(-50%); }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .cardinal-container {
+                height: 500px;
+            }
+            
+            .direction-point {
+                width: 260px;
+                padding: 20px;
+            }
+            
+            .compass {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .direction-image {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-section {
+                padding: 80px 20px 60px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .cardinal-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .compass {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin-bottom: 30px;
+            }
+            
+            .direction-point {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                transform: none;
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .compass-line, .direction-label {
+                display: none;
+            }
+            
+            .home-nav {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .home-link {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-desc {
+                font-size: 1rem;
+            }
+            
+            .direction-point {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .direction-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .leadership-card {
+                padding: 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .direction-point, .leadership-card {
+            animation: floatIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .north { animation-delay: 0.1s; }
+        .south { animation-delay: 0.2s; }
+        .east { animation-delay: 0.3s; }
+        .west { animation-delay: 0.4s; }
+        .north-east { animation-delay: 0.5s; }
+        .north-west { animation-delay: 0.6s; }
+        .leadership-card { animation-delay: 0.7s; }
+    </style>
+</head>
+<body>
+    <!-- Home Navigation -->
+    <nav class="home-nav">
+        <a href="index.html" class="home-link">
+            <i class="fas fa-home"></i>
+            Back to Home
+        </a>
+    </nav>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Regional Structure</div>
+                <h2 class="section-title">Zonal Coordinators by Direction</h2>
+                <p class="section-desc">Our coordinators are strategically positioned across Nigeria's cardinal directions to ensure comprehensive coverage and impact.</p>
+            </div>
+
+            <!-- Cardinal Points Layout -->
+            <div class="cardinal-container">
+                <!-- Compass Lines -->
+                <div class="compass-line vertical-line"></div>
+                <div class="compass-line horizontal-line"></div>
+                
+                <!-- Direction Labels -->
+                <div class="direction-label label-north">NORTH</div>
+                <div class="direction-label label-south">SOUTH</div>
+                <div class="direction-label label-east">EAST</div>
+                <div class="direction-label label-west">WEST</div>
+                
+                <!-- Center Compass -->
+                <div class="compass">
+                    <div class="compass-inner">
+                        <div class="compass-title">Nigeria</div>
+                        <div class="compass-subtitle">National Coverage</div>
+                    </div>
+                </div>
+
+                <!-- North -->
+                <div class="direction-point north">
+                    <img src="./images/team/musa.jpeg" alt="Hajia Sakina Musa Tafida" class="direction-image">
+                    <div class="direction-info">
+                        <div class="direction-title">North East Zone</div>
+                        <div class="direction-subtitle">6 States</div>
+                        <div class="coordinator-name">Hajia Sakina Musa Tafida</div>
+                        <div class="coordinator-role">Programme Coordinator</div>
+                        <div class="direction-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- South -->
+                <div class="direction-point south">
+                    <img src="./images/team/joseph.jpeg" alt="Mrs. Ngozi Eze" class="direction-image">
+                    <div class="direction-info">
+                        <div class="direction-title">South South Zone</div>
+                        <div class="direction-subtitle">6 States</div>
+                        <div class="coordinator-name">BABATUNDE OLUFEMI JOSEPH</div>
+                        <div class="coordinator-role">Programme Coordinator</div>
+                        <div class="direction-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- East -->
+                <div class="direction-point east">
+                    <img src="./images/team/grace.jpeg" alt="Mr. Chukwuma Okoro" class="direction-image">
+                    <div class="direction-info">
+                        <div class="direction-title">South East Zone</div>
+                        <div class="direction-subtitle">5 States</div>
+                        <div class="coordinator-name">MRS NWANKWO NKEIRUKA GRACE</div>
+                        <div class="coordinator-role">Programme Coordinator</div>
+                        <div class="direction-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- West -->
+                <div class="direction-point west">
+                    <img src="./images/team/alex.jpeg" alt="Dr. Amina Bello" class="direction-image">
+                    <div class="direction-info">
+                        <div class="direction-title">South West Zone</div>
+                        <div class="direction-subtitle">6 States</div>
+                        <div class="coordinator-name">Ubong Alexander Emmanuel Esq</div>
+                        <div class="coordinator-role">Programme Coordinator</div>
+                        <div class="direction-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- North East -->
+                <div class="direction-point north-east">
+                    <img src="./images/team/rekiya.jpeg" alt="Hajia Rakiya Usman" class="direction-image">
+                    <div class="direction-info">
+                        <div class="direction-title">North Central Zone</div>
+                        <div class="direction-subtitle">6 States + FCT</div>
+                        <div class="coordinator-name">Hajia Rakiya Usman</div>
+                        <div class="coordinator-role">Programme Coordinator</div>
+                        <div class="direction-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- North West -->
+                <div class="direction-point north-west">
+                    <img src="./images/team/dutse.jpeg" alt="Yahaya Damina Dutse" class="direction-image">
+                    <div class="direction-info">
+                        <div class="direction-title">North West Zone</div>
+                        <div class="direction-subtitle">7 States</div>
+                        <div class="coordinator-name">Yahaya Damina Dutse</div>
+                        <div class="coordinator-role">Programme Coordinator</div>
+                        <div class="direction-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership Section -->
+            <div class="leadership-section">
+                <h3 class="leadership-title">National Leadership</h3>
+                <div class="leadership-cards">
+                    <div class="leadership-card">
+                        <img src="./images/team/ramotu.jpeg" alt="Momohsanni Ramotu Maigiwa" class="leadership-image">
+                        <h4 class="leadership-name">Momohsanni Ramotu Maigiwa</h4>
+                        <div class="leadership-role">Country Programme Director</div>
+                        <p class="leadership-desc">Provides strategic direction and oversees all zonal operations across Nigeria.</p>
+                    </div>
+                    <div class="leadership-card">
+                        <img src="./images/team/attah.jpeg" alt="Ms. Endurance Ojochogwu Attah" class="leadership-image">
+                        <h4 class="leadership-name">Ms. Endurance Ojochogwu Attah</h4>
+                        <div class="leadership-role">Diaspora Initiative Director</div>
+                        <p class="leadership-desc">Leads international partnerships and global engagement initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const directionPoints = document.querySelectorAll('.direction-point');
+            
+            directionPoints.forEach(point => {
+                point.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '20';
+                });
+                
+                point.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '5';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

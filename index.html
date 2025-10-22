@@ -205,7 +205,7 @@
         .hero {
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             text-align: center;
@@ -246,6 +246,115 @@
             background-color: var(--dark-green);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Donation Account Section */
+        .donation-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: var(--white);
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .donation-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .donation-text {
+            flex: 1;
+        }
+
+        .donation-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .donation-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .account-details {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .account-info {
+            margin-bottom: 20px;
+        }
+
+        .account-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .account-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .copy-btn {
+            background: var(--white);
+            color: var(--primary-green);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.copied {
+            background: var(--light-green);
+            color: var(--white);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
         }
 
         /* Sections */
@@ -661,6 +770,11 @@
             .hero h1 {
                 font-size: 2.8rem;
             }
+
+            .donation-container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         @media (max-width: 576px) {
@@ -686,6 +800,14 @@
                 flex-direction: column;
                 gap: 20px;
             }
+
+            .account-number {
+                font-size: 1.2rem;
+            }
+
+            .donation-text h3 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -709,28 +831,17 @@
                     <li class="nav-item">
                         <a href="about.html" class="nav-link">About Us</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
                          <a href="program.html" class="nav-link">Programs</a>
-                        <!-- <a href="" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a> -->
-                        <!-- <div class="dropdown-content">
-                            <a href="#" class="dropdown-link">Education Support</a>
-                            <a href="#" class="dropdown-link">Entrepreneurship</a>
-                            <a href="#" class="dropdown-link">Mental Health</a>
-                            <a href="#" class="dropdown-link">Legal Services</a>
-                            <a href="#" class="dropdown-link">Campaigns Against Drug Abuse</a>
-                        </div> -->
                     </li>
                     <li class="nav-item">
                         <a href="testimonials.html" class="nav-link">Testimonials</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="#" class="nav-link">Gallery</a>
-                    </li> -->
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="team.html" class="nav-link">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-cta">Donate Now</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -744,6 +855,29 @@
                 <h1>Confluence Amazons Charity Foundation</h1>
                 <p>Empowering women, adolescents, and children through education, mental health support, and entrepreneurship</p>
                 <a href="#about" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Account Section -->
+    <section class="donation-section">
+        <div class="container">
+            <div class="donation-container">
+                <div class="donation-text">
+                    <h3>Support Our Mission</h3>
+                    <p>Your generous donations help us continue our work in empowering women, adolescents, and children through education, mental health support, and entrepreneurship programs.</p>
+                </div>
+                <div class="account-details">
+                    <div class="account-info">
+                        <div class="account-label">DONATION ACCOUNT NUMBER</div>
+                        <div class="account-number" id="donationAccount">0020303789</div>
+                        <div class="account-label">Jaiz Bank Plc --- Confluence Amazons</div>
+                    </div>
+                    <button class="copy-btn" id="copyAccountBtn">
+                        <i class="far fa-copy"></i>
+                        Copy Account Number
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -870,25 +1004,6 @@
                     
                     <p>We now have seven trustees and a network of global volunteers, all professionals dedicated to advancing our mission of empowering lives through opportunity, dignity, and compassion.</p>
                 </div>
-                
-                <!-- <div class="stats">
-                    <div class="stat-item">
-                        <h3>1,200+</h3>
-                        <p>Individuals Helped</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>15+</h3>
-                        <p>Years of Service</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>7</h3>
-                        <p>Trustees</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>6</h3>
-                        <p>Program Areas</p>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -931,7 +1046,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
@@ -1019,6 +1133,12 @@
         </div>
     </footer>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Account number copied to clipboard!</span>
+    </div>
+
     <script>
         // Mobile Menu Toggle - FIXED
         const hamburger = document.getElementById('hamburger');
@@ -1102,6 +1222,54 @@
                     });
                 }
             });
+        });
+
+        // Copy Account Number Functionality
+        const copyAccountBtn = document.getElementById('copyAccountBtn');
+        const donationAccount = document.getElementById('donationAccount');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        copyAccountBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(donationAccount.textContent);
+                
+                // Update button state
+                copyAccountBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyAccountBtn.classList.add('copied');
+                
+                // Show toast
+                toastMessage.textContent = 'Account number copied to clipboard!';
+                toast.classList.add('show');
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    copyAccountBtn.innerHTML = '<i class="far fa-copy"></i> Copy Account Number';
+                    copyAccountBtn.classList.remove('copied');
+                }, 2000);
+                
+                // Hide toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+                
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = donationAccount.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Show error toast
+                toastMessage.textContent = 'Account number copied!';
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
         });
     </script>
 </body>
